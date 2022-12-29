@@ -24,7 +24,7 @@ MovieList.propTypes = {
   movies: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
+      state: PropTypes.string,
     })
   ).isRequired,
-  state: PropTypes.string,
 };
