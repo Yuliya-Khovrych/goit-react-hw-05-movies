@@ -1,4 +1,5 @@
 import { Link, Outlet, useLocation } from 'react-router-dom';
+import { Suspense } from 'react';
 import  Cast  from 'components/Cast/Cast';
 import  Reviews  from 'components/Reviews/Reviews';
 import { Button, Info, InfoText, GenreList } from './MovieItemDetails.styled';
@@ -54,7 +55,9 @@ export default function MovieItemDetails ({ movieInfo }) {
           </Link>
         </li>
       </ul>
-      <Outlet />
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </div>
   );
 };

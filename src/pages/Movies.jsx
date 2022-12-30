@@ -68,7 +68,7 @@ const Movies = () => {
 
   return (
     <Container>
-      <Searchbar onSubmit={handleFormSubmit} />
+      <Searchbar onSubmit={handleFormSubmit} value={searchQuery} />
       {isLoading && <Loader />}
       {foundMovies.length > 0 && (
         <MovieList movies={foundMovies} state={{ from: location }} />

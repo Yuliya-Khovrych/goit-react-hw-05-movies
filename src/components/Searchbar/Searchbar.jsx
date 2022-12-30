@@ -8,7 +8,7 @@ import {
   SearchFormInput,
 } from './Searchbar.styled';
 
-export const Searchbar = ({ onSubmit }) => {
+export const Searchbar = ({ onSubmit, value }) => {
   const [searchQuery, setSearchQuery] = useState('');
 
   const handleChange = evt => {
@@ -26,24 +26,25 @@ export const Searchbar = ({ onSubmit }) => {
   };
 
   return (
-      <SearchForm onSubmit={handleSubmit}>
-        <SearchFormButton type="submit">
-          <BsSearch size={20} />
-        </SearchFormButton>
-        <SearchFormInput
-          type="text"
-          autocomplete="off"
-          autoFocus
-          placeholder="Search movies"
-          name="searchQuery"
-          value={searchQuery}
-          onChange={handleChange}
-        />
-      </SearchForm>
-  
+    <SearchForm onSubmit={handleSubmit}>
+      <SearchFormButton type="submit">
+        <BsSearch size={20} />
+      </SearchFormButton>
+      <SearchFormInput
+        type="text"
+        autocomplete="off"
+        autoFocus
+        placeholder="Search movies"
+        name="searchQuery"
+        // value={searchQuery}
+        defaultValue={value}
+        onChange={handleChange}
+      />
+    </SearchForm>
   );
 };
 
 Searchbar.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired,
 };
